@@ -1,0 +1,415 @@
+@import '../vendor/fontawesome/scss/fontawesome';
+@import '../vendor/fontawesome/scss/brands';
+@import '../vendor/fontawesome/scss/solid';
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans|Merriweather&display=swap');
+
+$light-shades: #EBE3DA;
+$light-accent: #6BB9D6;
+$main-color: #0055AA;
+$dark-accent: #b8ad92;
+$dark-shade: #1A1D22;
+
+body {
+  background-color: $light-shades;
+  font-family: 'Merriweather', serif;
+}
+
+a {
+  color: $light-accent;
+}
+
+/* Header and navigation */
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  z-index: 9999;
+  transition: all 0.5s;
+  padding: 0 15px;
+  background: $main-color;
+  overflow-y: auto;
+  font-family: 'Fira Sans', sans-serif;
+
+  a {
+    color: $light-shades;
+    text-decoration: none;
+
+  }
+
+  .profile {
+    img {
+      margin: 15px auto;
+      display: block;
+      width: 120px;
+      border: 8px solid $dark-shade;
+      transform: scaleX(-1);
+    }
+
+    h1 {
+      font-size: 24px;
+      margin: 0;
+      padding: 0;
+      font-weight: 600;
+      -moz-text-align-last: center;
+      text-align-last: center;
+      font-family: "Fira Sans", sans-serif;
+
+      a, a:hover {
+        color: $light-shades;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+#social-links {
+  a {
+    font-size: 18px;
+    display: inline-block;
+    background: $dark-shade;
+    color: $light-shades;
+    line-height: 1;
+    padding: 9px 0;
+    margin-right: 4px;
+    border-radius: 50%;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
+  }
+
+  a:hover {
+    background: $light-accent;
+    color: $light-shades;
+    text-decoration: none;
+  }
+
+  .facebook {
+    @extend %fa-icon;
+    @extend .fab;
+
+    &:before {
+      content: fa-content($fa-var-facebook);
+    }
+  }
+
+  .instagram {
+    @extend %fa-icon;
+    @extend .fab;
+
+    &:before {
+      content: fa-content($fa-var-instagram);
+    }
+  }
+
+  .linkedin {
+    @extend %fa-icon;
+    @extend .fab;
+
+    &:before {
+      content: fa-content($fa-var-linkedin);
+    }
+  }
+
+  .twitter {
+    @extend %fa-icon;
+    @extend .fab;
+
+    &:before {
+      content: fa-content($fa-var-twitter);
+    }
+  }
+}
+
+
+/* Navigation menu */
+#nav-menu {
+  padding-top: 30px;
+  padding-left: 50px;
+
+  * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  > ul > li {
+    position: relative;
+    white-space: nowrap;
+  }
+  a {
+    display: flex;
+    align-items: center;
+    color: $dark-accent;
+    padding: 8px 15px;
+    margin-bottom: 8px;
+    transition: 0.3s;
+    font-size: 15px;
+
+    i {
+      font-size: 28px;
+      padding-right: 8px;
+      color: $dark-shade;
+    }
+  }
+
+  a:hover,  .active > a,  li:hover > a {
+    text-decoration: none;
+    color: $light-shades;
+  }
+
+  a:hover i, .active > a i,  li:hover > a i {
+    color: $light-accent;
+  }
+}
+
+/* Mobile Navigation */
+.mobile-nav-toggle {
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  z-index: 9998;
+  border: 0;
+  background: none;
+  font-size: 24px;
+  transition: all 0.4s;
+  outline: none !important;
+  line-height: 1;
+  cursor: pointer;
+  text-align: right;
+
+  i {
+    color: $light-accent;
+  }
+}
+
+.mobile-nav-active {
+  overflow: hidden;
+
+  #header {
+    left: 0;
+  }
+
+  .mobile-nav-toggle i {
+    color: $light-accent;
+  }
+
+}
+
+
+/* Main Content */
+#main {
+  margin-left: 300px;
+  color: $dark-shade;
+  h1 {
+    font-family: "Fira Sans", sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+  }
+
+}
+
+section {
+  padding: 10px;
+  overflow: hidden;
+  .content {
+    h3 {
+      font-weight: 700;
+      font-size: 26px;
+      color: $dark-shade;
+    }
+
+    table {
+      list-style: none;
+      padding: 0;
+
+      td {
+        padding-bottom: 10px;
+        padding-left: 5px;
+      }
+
+      th {
+        padding-bottom: 10px;
+        strong {
+          font-family: "Fira Sans", sans-serif;
+        }
+
+        i {
+          font-size: 20px;
+          padding-right: 2px;
+          color: $light-accent;
+        }
+      }
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.section-title {
+  padding-bottom: 30px;
+
+  h2 {
+    font-family: "Fira Sans", sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+    color: $dark-shade;
+
+    &::after{
+      content: '';
+      position: absolute;
+      display: block;
+      width: 70px;
+      height: 3px;
+      background: $light-accent;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  p {
+    font-style: italic;
+  }
+}
+
+#skills {
+  .progress-bar-wrap {
+    background: $dark-accent;
+    border-radius: 3px;
+  }
+
+  .progress-bar {
+    width: 1px;
+    height: 15px;
+    transition: .9s;
+    background-color: $light-accent;
+    border-radius: inherit;
+  }
+
+  .progress {
+    height: 50px;
+    display: block;
+    background: none;
+
+    .skill {
+      padding: 0;
+      margin: 0 0 6px 0;
+      text-transform: uppercase;
+      display: block;
+      font-size: 1.3em;
+      font-weight: 700;
+      font-family: "Fira Sans", sans-serif;
+      color: $dark-shade;
+
+      .val {
+        float: right;
+        font-style: normal;
+      }
+    }
+  }
+}
+
+
+.email-form {
+  width: 100%;
+  padding: 30px;
+  background: #fff;
+  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+
+  input, textarea {
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 14px;
+  }
+  input {
+    height: 44px;
+  }
+  textarea {
+    padding: 10px 12px;
+    border-radius: 3px;
+  }
+
+  button[type="submit"] {
+    background: $light-accent;
+    border: 0;
+    padding: 10px 24px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 4px;
+
+    &:hover{
+      background: $dark-shade;
+    }
+  }
+}
+
+.experience-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: $dark-shade;
+}
+
+.experience-item {
+  padding: 0 0 20px 20px;
+  margin-top: -2px;
+  border-left: 2px solid $dark_accent;
+  position: relative;
+
+  h4 {
+    line-height: 18px;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: "Fira Sans", sans-serif;
+    color: $dark-shade;
+    margin-bottom: 10px;
+  }
+
+  h5 {
+    font-size: 16px;
+    background: $light-shades;
+    padding: 5px 15px;
+    display: inline-block;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  ul {
+    padding-left: 20px;
+    li {
+      padding-bottom: 10px;
+    }
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50px;
+    left: -9px;
+    top: 0;
+    background: $light-shades;
+    border: 2px solid $dark-accent;
+  }
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+@media (max-width: 1199px) {
+  #header {
+    left: -300px;
+  }
+  #main {
+    margin-left: 0;
+  }
+}
